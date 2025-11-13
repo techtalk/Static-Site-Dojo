@@ -1,4 +1,8 @@
 module.exports = function(eleventyConfig) {
+	const { HtmlBasePlugin } = await import("@11ty/eleventy");
+  
+	eleventyConfig.addPlugin(HtmlBasePlugin);
+  
   // Pass through assets
   eleventyConfig.addPassthroughCopy("src/css");
   
@@ -28,7 +32,6 @@ module.exports = function(eleventyConfig) {
       includes: "_includes",
       data: "_data"
     },
-    pathPrefix: "Static-Site-Dojo/",
     markdownTemplateEngine: "njk",
     htmlTemplateEngine: "njk",
     templateFormats: ["html", "njk", "md"]
