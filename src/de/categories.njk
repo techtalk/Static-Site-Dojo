@@ -1,0 +1,33 @@
+---
+layout: layout.njk
+pagination:
+  data: categories
+  size: 1
+  alias: category
+permalink: "/de/categories/{{ category.id }}/index.html"
+lang: de
+---
+
+<a href="/{{ lang }}/" class="back-link">← {{ i18n[lang].home }}</a>
+
+<h1>{{ i18n[lang].trainings_in_category }} {{ category.name[lang] }}</h1>
+<p>{{ category.description[lang] }}</p>
+
+<div class="training-grid">
+{% for training in trainings %}
+    {% if training.categories.includes(category.id) %}
+    <div class="training-card">
+        {% if training.featured %}
+        <span class="featured-badge">Hervorgehoben</span>
+        {% endif %}
+        <h3>{{ training.title[lang] }}</h3>
+        <p>{{ training.description[lang] }}</p>
+        <div class="training-meta">
+            <span class="meta-item">⏱️ {{ training.duration[lang] }}</span>
+            <span class="meta-item">📊 {{ training.level[lang] }}</span>
+        </div>
+        <a href="/{{ lang }}/trainings/{{ training.id }}/" class="btn">{{ i18n[lang].view_details }}</a>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>

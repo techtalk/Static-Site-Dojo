@@ -1,0 +1,46 @@
+---
+layout: layout.njk
+title: Home
+lang: en
+permalink: /en/index.html
+---
+
+<h1>{{ i18n[lang].featured_trainings }}</h1>
+
+<div class="training-grid">
+{% for training in trainings %}
+    {% if training.featured %}
+    <div class="training-card">
+        <span class="featured-badge">Featured</span>
+        <h3>{{ training.title[lang] }}</h3>
+        <p>{{ training.description[lang] }}</p>
+        <div class="training-meta">
+            <span class="meta-item">⏱️ {{ training.duration[lang] }}</span>
+            <span class="meta-item">📊 {{ training.level[lang] }}</span>
+        </div>
+        <div class="categories-list">
+            {% for categoryId in training.categories %}
+                {% for cat in categories %}
+                    {% if cat.id == categoryId %}
+                        <a href="/{{ lang }}/categories/{{ categoryId }}/" class="category-badge">{{ cat.name[lang] }}</a>
+                    {% endif %}
+                {% endfor %}
+            {% endfor %}
+        </div>
+        <a href="/{{ lang }}/trainings/{{ training.id }}/" class="btn">{{ i18n[lang].view_details }}</a>
+    </div>
+    {% endif %}
+{% endfor %}
+</div>
+
+<h2>{{ i18n[lang].training_categories }}</h2>
+
+<div class="category-grid">
+{% for category in categories %}
+    <div class="category-card">
+        <h3>{{ category.name[lang] }}</h3>
+        <p>{{ category.description[lang] }}</p>
+        <a href="/{{ lang }}/categories/{{ category.id }}/" class="btn btn-secondary">{{ i18n[lang].view_all }}</a>
+    </div>
+{% endfor %}
+</div>

@@ -1,0 +1,16 @@
+{
+  "name": "static-site-dojo",
+  "version": "1.0.0",
+  "description": "Training catalog website with 11ty",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "keywords": ["11ty", "eleventy", "training", "catalog"],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

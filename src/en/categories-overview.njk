@@ -1,0 +1,19 @@
+---
+layout: layout.njk
+title: Categories
+lang: en
+permalink: /en/categories/index.html
+---
+
+<h1>{{ i18n[lang].training_categories }}</h1>
+
+<div class="category-grid">
+{% for category in categories %}
+    <div class="category-card">
+        <h3>{{ category.name[lang] }}</h3>
+        <p>{{ category.description[lang] }}</p>
+        <p><strong>{{ trainings | byCategory(category.id) | length }} trainings</strong></p>
+        <a href="/{{ lang }}/categories/{{ category.id }}/" class="btn">{{ i18n[lang].view_all }}</a>
+    </div>
+{% endfor %}
+</div>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - {{ i18n[lang].site_title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <h1><a href="/{{ lang }}/">{{ i18n[lang].site_title }}</a></h1>
+                <ul class="nav-links">
+                    <li><a href="/{{ lang }}/">{{ i18n[lang].home }}</a></li>
+                    <li><a href="/{{ lang }}/categories/">{{ i18n[lang].categories }}</a></li>
+                    <li class="lang-switcher">
+                        {% if lang == "en" %}
+                            <a href="/de{{ page.url | replace('/en', '') }}">DE</a>
+                        {% else %}
+                            <a href="/en{{ page.url | replace('/de', '') }}">EN</a>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    
+    <main class="container">
+        {{ content | safe }}
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 {{ i18n[lang].site_title }}. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
