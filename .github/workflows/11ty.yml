@@ -51,7 +51,8 @@ jobs:
         # once package-lock is checked in, run: npm ci
         run: npm install
       - name: Build
-        run: npm run build
+        # TODO automatically get repo name (or exact path prefix)
+        run: npm run build --pathprefix Static-Site-Dojo
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
