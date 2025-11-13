@@ -1,7 +1,7 @@
 module.exports = function(eleventyConfig) {
-	const { HtmlBasePlugin } = await import("@11ty/eleventy");
-  
-	eleventyConfig.addPlugin(HtmlBasePlugin);
+  const { HtmlBasePlugin } = import("@11ty/eleventy");
+
+  eleventyConfig.addPlugin(HtmlBasePlugin);
   
   // Pass through assets
   eleventyConfig.addPassthroughCopy("src/css");
