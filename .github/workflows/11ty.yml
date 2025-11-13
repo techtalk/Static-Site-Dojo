@@ -51,7 +51,7 @@ jobs:
         # once package-lock is checked in, run: npm ci
         run: npm install
       - name: Build
-        run: npm build
+        run: npm run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
